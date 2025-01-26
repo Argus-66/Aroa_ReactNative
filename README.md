@@ -54,9 +54,10 @@ Join our community of developers creating universal apps.
 
 How to start:
 
-
+```bash
 rnfes // macro for react native page
+```
 
-
+```bash
 npm install nativewind tailwindcss react-native-reanimated react-native-safe-area-context //this is for native wind and tailwindcss
-
+```
