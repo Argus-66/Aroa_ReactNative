@@ -84,12 +84,19 @@ If your project does not have a metro.config.js run
 ```bash
 npx expo customize metro.config.js
 ```
-add this line in the last in metro.config.js
+metro.config.js should look like this copy paste
 ```bash
-module.exports = withNativeWind(config, { input: "./global.css" });
+// Learn more https://docs.expo.io/guides/customizing-metro
+const { getDefaultConfig } = require('expo/metro-config');
+const { withNativeWind } = require("nativewind/metro");
+
+/** @type {import('expo/metro-config').MetroConfig} */
+const config = getDefaultConfig(__dirname);
+
+module.exports = withNativeWind(config, { input: "./app/global.css" });
 ```
 
 Import your global CSS file in app/_layout.js/.tsx
 ```bash
-import "../global.css";
+import "./global.css";
 ```
