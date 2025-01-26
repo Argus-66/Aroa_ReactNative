@@ -100,3 +100,19 @@ Import your global CSS file in app/_layout.js/.tsx
 ```bash
 import "./global.css";
 ```
+Create a file _layout.js/.tsx file name babel.config.js
+```bash
+module.exports = function (api) {
+    api.cache(true);
+    return {
+      presets: [
+        ["babel-preset-expo", { jsxImportSource: "nativewind" }], // For NativeWind JSX support
+      ],
+      plugins: [
+        "nativewind/babel", // Required for NativeWind
+        "react-native-reanimated/plugin", // Required for react-native-reanimated
+      ],
+   };
+};
+  
+```
