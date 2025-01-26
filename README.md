@@ -49,3 +49,14 @@ Join our community of developers creating universal apps.
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
 # Aroa_ReactNative
+
+
+
+How to start:
+
+
+rnfes // macro for react native page
+
+
+npm install nativewind tailwindcss react-native-reanimated react-native-safe-area-context //this is for native wind and tailwindcss
+
