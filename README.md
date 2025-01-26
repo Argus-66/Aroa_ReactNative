@@ -54,11 +54,42 @@ Join our community of developers creating universal apps.
 
 How to start:
 
-// macro for react native page
+macro for react native page
 ```bash
 rnfes 
 ```
-//this is for native wind and tailwindcss
+this is for native wind and tailwindcss
 ```bash
 npm install nativewind tailwindcss react-native-reanimated react-native-safe-area-context 
+```
+run
+to create a tailwind.config.js file
+```bash
+npx tailwindcss init
+```
+change content in tailwind.config.js to
+```bash
+content: ["./app/**/*.{js,jsx,ts,tsx}"],
+presets: [require("nativewind/preset")],
+```
+
+create a global.css inside app folder
+add these in that file
+```bash
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+If your project does not have a metro.config.js run 
+```bash
+npx expo customize metro.config.js
+```
+add this line in the last in metro.config.js
+```bash
+module.exports = withNativeWind(config, { input: "./global.css" });
+```
+
+Import your global CSS file in app/_layout.js/.tsx
+```bash
+import "../global.css";
 ```
