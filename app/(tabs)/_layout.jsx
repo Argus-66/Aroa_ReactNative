@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text, Image } from 'react-native'
 import React from 'react'
 import { Tabs, Redirect } from 'expo-router'
 
@@ -9,6 +9,9 @@ const TabIcon = ( icon, color, name, focused) => {
     <View>
       <Image 
         source = {icon}
+        resizeMode = "contain"
+        tintcolor = {color}
+        className = "w-6 h-6"
       />
     </View>
   )
@@ -27,7 +30,7 @@ const TabsLayout = () => {
               <TabIcon 
                 icon = {icons.home}
                 color= {color}
-                name = "Home"
+                name = "home"
                 focused = {focused}
               />
             )
