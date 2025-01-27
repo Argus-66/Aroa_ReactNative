@@ -4,7 +4,7 @@ import { Tabs, Redirect } from 'expo-router'
 
 import { icons } from '../../constants';
 
-const TabIcon = ( icon, color, name, focused) => {
+const TabIcon = ({ icon, color, name, focused }) => {
   return (
     <View>
       <Image 
@@ -13,6 +13,9 @@ const TabIcon = ( icon, color, name, focused) => {
         tintcolor = {color}
         className = "w-6 h-6"
       />
+      <Text className={`${focused ? 'font-psemibold' : 'font-pregular'} text-xs` }>
+        {name}
+      </Text>
     </View>
   )
 }
@@ -30,7 +33,7 @@ const TabsLayout = () => {
               <TabIcon 
                 icon = {icons.home}
                 color= {color}
-                name = "home"
+                name = "Home"
                 focused = {focused}
               />
             )
