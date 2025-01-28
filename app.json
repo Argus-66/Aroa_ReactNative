@@ -12,6 +12,7 @@
       "supportsTablet": true
     },
     "android": {  //ANDROID
+      "package": "com.jsm.aora", //appwrite code project id
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
