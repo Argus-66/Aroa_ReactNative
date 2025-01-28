@@ -1,4 +1,5 @@
 // rnfes
+import 'react-native-url-polyfill/auto'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import React from 'react';
 import { ScrollView, Image, View, Text } from 'react-native';
