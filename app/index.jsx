@@ -2,15 +2,16 @@
 import { SafeAreaView } from 'react-native-safe-area-context';
 import React from 'react';
 import { ScrollView, Image, View, Text } from 'react-native';
-
+import { Redirect, router } from 'expo-router';
 import { images } from '../constants'
 import CustomButton from '../components/CustomButton';
+import { StatusBar } from 'expo-status-bar';
 
 export default function App() {
   return (
     <SafeAreaView className="bg-primary h-full" >
       <ScrollView contentContainerStyle={{ height: '100%' }}>
-        <View className="w-full items-center h-full px-4">
+        <View className="w-full justify-center items-center min-h-[85vh] px-4">
 
           <Image
             source={images.logo}
@@ -39,12 +40,17 @@ export default function App() {
           <Text className=" text-s font-pregular text-gray-100 mt-7 text-center">Where creativity meets innovation: embark on a journey of limetless exploration with Aora</Text>
 
           <CustomButton 
-          title="continue with Email"
-          handlePress={() => {}}
+          title="Continue with Email"
+          handlePress={() => router.push('/sign-in')}
           containerStyles="w-full mt-7"
           />
         </View>
       </ScrollView>
+
+      <StatusBar //when u wanna darken the top bar where u see battery etc
+        backgroundColor='#161622'
+        style='light'
+      />
     </SafeAreaView>
   )
 }
