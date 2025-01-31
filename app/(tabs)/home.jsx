@@ -5,6 +5,8 @@ import { idText } from 'typescript'
 
 import { images } from '../../constants'
 import SearchInput from '../../components/SearchInput'
+import Trending from '../../components/Trending'
+import EmptyState from '../../components/EmptyState'
 
 const Home = () => {
   return (
@@ -28,7 +30,7 @@ const Home = () => {
               </View>
 
               <View className="mt-1.5">
-                <Image 
+                <Image
                   source={images.logoSmall}
                   className="w-9 h-10"
                   resizeMode='contain'
@@ -43,10 +45,19 @@ const Home = () => {
                 Latest Videos
               </Text>
 
-              
+              <Trending
+                posts={[{ id: 1 }, { id: 2 }, { id: 3 }] ?? []}
+              />
 
             </View>
           </View>
+        )}
+
+        ListEmptyComponent={() => (
+          <EmptyState 
+            title="No videos found"
+            subtitle="Be the first one to upload a video"
+          />
         )}
       />
     </SafeAreaView>
