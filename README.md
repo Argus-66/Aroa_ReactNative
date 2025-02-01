@@ -116,3 +116,7 @@ module.exports = function (api) {
 };
   
 ```
+to run your web project
+```bash
+npm run web
+```

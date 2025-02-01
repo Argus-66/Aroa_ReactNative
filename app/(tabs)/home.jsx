@@ -9,6 +9,11 @@ import Trending from '../../components/Trending'
 import EmptyState from '../../components/EmptyState'
 
 const Home = () => {
+
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true)
+
+
   const [refreshing, setRefreshing] = useState(false)
 
   const onRefresh = async () =>{
