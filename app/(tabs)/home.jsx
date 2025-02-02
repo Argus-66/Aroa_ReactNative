@@ -9,6 +9,7 @@ import Trending from '../../components/Trending'
 import EmptyState from '../../components/EmptyState'
 import { getAllPosts } from '../../lib/appwrite'
 import useAppwrite from '../../lib/useAppwrite'
+import VideoCard from '../../components/VideoCard'
 
 const Home = () => {
 
@@ -29,7 +30,9 @@ const Home = () => {
         data={posts}
         keyExtractor={(item) => item.$id}
         renderItem={({ item }) => (
-          <Text className="text-3xl text-white">{item.title}</Text>
+          <VideoCard
+            video={item}
+          />
         )}
         ListHeaderComponent={() => (
           <View className="my-6 px-4 space-y-6">
@@ -60,7 +63,7 @@ const Home = () => {
               </Text>
 
               <Trending
-                posts={[{ id: 1 }, { id: 2 }, { id: 3 }] ?? []}
+                posts={[{ id:1 }, { id:2 }, { id:3 } ] ?? []}
               />
 
             </View>
