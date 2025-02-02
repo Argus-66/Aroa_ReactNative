@@ -25,11 +25,10 @@ const TrendingItem = ({ activeItem, item }) => {
 
   const [play, setPlay] = useState(false)
 
-  console.log(activeItem.$id, item.$id)
   return (
     <Animatable.View
       className="mr-5"
-      animation={activeItem.$id === item.$id? zoomIn : zoomOut}
+      animation={activeItem === item.$id? zoomIn : zoomOut}
       duration={500}
     >
       {play  ? (
@@ -80,7 +79,12 @@ const Trending = ({ posts }) => {
             />
         )}
         onViewableItemsChanged={viewableItemsChanged}
-        
+        viewabilityConfig={{
+          itemVisiblePercentThreshold: 70,
+        }}
+        contentOffset={{
+          x: 170
+        }}
         horizontal
     />
   )
