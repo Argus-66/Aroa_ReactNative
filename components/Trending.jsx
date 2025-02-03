@@ -2,8 +2,8 @@ import { View, Text, FlatList, TouchableOpacity, Image, ImageBackground } from '
 import React, { useState } from 'react'
 import * as Animatable from 'react-native-animatable'
 import { icons } from '../constants'
-import { Video } from 'expo-video'
-//import { Video, ResizeMode } from 'expo-av'
+//import { Video, ResizeMode } from 'expo-video'
+import { Video, ResizeMode } from 'expo-av'
 
 
 const zoomIn = {
@@ -36,11 +36,12 @@ const TrendingItem = ({ activeItem, item }) => {
       {play  ? (
         <Video 
           source={{ uri: item.video }}
-          className="w-52 h-52 rounded-[35px] mt-3 bg-white/10"
-          resizeMode='cover'
+          className="w-52 h-52 rounded-[35pc] mt-3 bg-white/10"
+          resizeMode={ResizeMode.COVER}
+          //resizeMode='contain'
           useNativeControls
           shouldPlay
-          onStateChange={(status) => {
+          onPlaybackStatusUpdate={(status) => {
             console.log('Playback status: ', status)
             if (status.error) {
               console.error('Playback error: ', status.error);
