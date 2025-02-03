@@ -1,24 +1,24 @@
 {
   "expo": {
-    "name": "Aora", //change this to your app name
-    "slug": "aora", //change this to your app slug
+    "name": "Aora",
+    "slug": "aora",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "aora", // change this to your app slug
+    "scheme": "aora",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
-    "ios": {  //IOS
+    "ios": {
       "supportsTablet": true
     },
-    "android": {  //ANDROID
-      "package": "com.jsm.aora", //appwrite code project id
+    "android": {
+      "package": "com.jsm.aora",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       }
     },
-    "web": {  //WEB
+    "web": {
       "bundler": "metro",
       "output": "static",
       "favicon": "./assets/favicon.png"
@@ -33,7 +33,8 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
-      ]
+      ],
+      "expo-video"
     ],
     "experiments": {
       "typedRoutes": true
