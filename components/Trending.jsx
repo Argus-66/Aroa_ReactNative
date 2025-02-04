@@ -38,7 +38,6 @@ const TrendingItem = ({ activeItem, item }) => {
           source={{ uri: item.video }}
           className="w-52 h-52 rounded-[35pc] mt-3 bg-white/10"
           resizeMode={ResizeMode.COVER}
-          //resizeMode='contain'
           useNativeControls
           shouldPlay
           onPlaybackStatusUpdate={(status) => {
