@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { icons } from '../constants'
 //import { ResizeMode, Video } from 'expo-av'
 import { useVideoPlayer, VideoView } from 'expo-video';
+import { useEvent } from 'expo';
 
 
 const VideoCard = ({ video: { title, thumbnail, video, creator: { username, avatar } } }) => {
@@ -11,6 +12,13 @@ const VideoCard = ({ video: { title, thumbnail, video, creator: { username, avat
 
     const player = useVideoPlayer(video, (player) => {
         player.loop = false;
+    });
+
+    // Listen for video completion and reset state (with safe destructuring)
+    useEvent(player, 'playingChange', (event) => {
+        if (event && typeof event.isPlaying !== 'undefined') {
+            if (!event.isPlaying) setPlay(false);
+        }
     });
 
     return (
@@ -86,8 +94,10 @@ const VideoCard = ({ video: { title, thumbnail, video, creator: { username, avat
                 <TouchableOpacity
                     activeOpacity={0.7}
                     onPress={() => {
-                        setPlay(true);
-                        player.play();
+                        if (!play) {
+                            setPlay(true);
+                            player.play();
+                        }
                     }}
                     className="w-full h-60 rounded-xl mt-3 relative justify-center items-center"
                 >
@@ -102,7 +112,6 @@ const VideoCard = ({ video: { title, thumbnail, video, creator: { username, avat
                         resizeMode="contain"
                     />
                 </TouchableOpacity>
-
             )}
 
         </View>
