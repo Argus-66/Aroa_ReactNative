@@ -1,12 +1,17 @@
-import { View, Text, Image, Touchable, TouchableOpacity } from 'react-native'
+import { View, Text, Image, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import { icons } from '../constants'
-import { ResizeMode, Video } from 'expo-av'
+//import { ResizeMode, Video } from 'expo-av'
+import { useVideoPlayer, VideoView } from 'expo-video';
+
 
 const VideoCard = ({ video: { title, thumbnail, video, creator: { username, avatar } } }) => {
 
     const [play, setPlay] = useState(false)
 
+    const player = useVideoPlayer(video, (player) => {
+        player.loop = false;
+    });
 
     return (
         <View className="flex-col items-center px-4 mb-14">
@@ -39,7 +44,7 @@ const VideoCard = ({ video: { title, thumbnail, video, creator: { username, avat
                 </View>
             </View>
 
-            {play ? (
+            {/* {play ? (
                 <Video
                     source={{ uri: video }}
                     className="w-full h-60 rounded-xl mt-3"
@@ -70,6 +75,34 @@ const VideoCard = ({ video: { title, thumbnail, video, creator: { username, avat
                         resizeMode='contain'
                     />
                 </TouchableOpacity>
+            )} */}
+
+            {play ? (
+                <VideoView
+                    player={player}
+                    className="w-full h-60 rounded-xl mt-3"
+                />
+            ) : (
+                <TouchableOpacity
+                    activeOpacity={0.7}
+                    onPress={() => {
+                        setPlay(true);
+                        player.play();
+                    }}
+                    className="w-full h-60 rounded-xl mt-3 relative justify-center items-center"
+                >
+                    <Image
+                        source={{ uri: thumbnail }}
+                        className="w-full h-full rounded-lg mt-3"
+                        resizeMode="cover"
+                    />
+                    <Image
+                        source={icons.play}
+                        className="w-12 h-12 absolute"
+                        resizeMode="contain"
+                    />
+                </TouchableOpacity>
+
             )}
 
         </View>
